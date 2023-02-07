@@ -1,0 +1,5 @@
+node_modules
+__test__
+commitlint.config.js
+jest.config.js
+dist/*

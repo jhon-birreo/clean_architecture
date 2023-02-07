@@ -1,0 +1,64 @@
+version: '3.4'
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  api:
+    container_name: clean_app
+    build:
+      context: .
+      target: development
+    restart: always
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 6000:4000
+    networks:
+      - app-tier
+    # links:
+    #   - mongo
+    #   - postgres
+    #   - redis
+    command: npm run dev
+    
+#   postgres:
+#     container_name: db_postgres
+#     image: postgres
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: postgres
+#       POSTGRES_DB: postgres
+#     volumes:
+#       - pg-data:/var/lib/postgresql/data
+#     ports:
+#       - 5431:5432
+#     networks:
+#       - app-tier
+#   mongo:
+#     container_name: db_mongo
+#     image: mongo
+#     ports:
+#       - 27017:27017
+#     networks:
+#       - app-tier
+#     volumes:
+#       - mongo-data:/data/db
+#   redis:
+#     container_name: cache_redis
+#     image: redis:7.0-alpine
+#     restart: always
+#     ports:
+#       - '6379:6379'
+#     command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+#     volumes: 
+#       - cache-data:/data
+#     networks:
+#       - app-tier
+
+# volumes:
+#   pg-data:
+#   mongo-data:
+#   cache-data:

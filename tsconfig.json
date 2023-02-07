@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "types": ["jest"],
+    "lib": ["es2021"],
+    "target": "es2021",
+    "module": "NodeNext",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "moduleResolution": "nodenext",
+    "experimentalDecorators": true,
+    "resolveJsonModule": true, 
+    "preserveConstEnums": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "rootDir": "src",
+    "baseUrl": "./",
+    "allowJs": true,
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
