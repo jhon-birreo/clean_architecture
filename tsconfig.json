@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["jest"],
+    "types": ["jest","node"],
     "lib": ["es2021"],
     "target": "es2021",
     "module": "NodeNext",
@@ -12,11 +12,13 @@
     "preserveConstEnums": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
     "strict": true,
     "rootDir": "src",
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "allowJs": true,
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*","test/**/*.ts"],
+  "exclude": ["node_modules","**/__test__/*"]
 }
